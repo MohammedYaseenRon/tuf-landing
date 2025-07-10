@@ -157,7 +157,7 @@ const Navbar = () => {
                                     <h3 className="font-semibold mb-2 text-orange-500">Courses</h3>
                                     <div className="space-y-2 ml-4">
                                         <Link href="/courses/dsa-sheet" className="block py-2 text-sm hover:text-orange-500 transition-colors">
-                                            Striver's DSA Sheet
+                                            Striver&aposs DSA Sheet
                                         </Link>
                                         <Link href="/courses/system-design" className="block py-2 text-sm hover:text-orange-500 transition-colors">
                                             System Design Sheet

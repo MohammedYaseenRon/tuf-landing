@@ -101,14 +101,14 @@ const PricingPlans = () => {
                     <h2 className='text-2xl lg:text-3xl font-md'>Affordable Plans for <span className='text-orange-500'>Everyone</span></h2>
                     <p className='mb-4 text-muted-foreground text-xl'>Choose the best fit for you</p>
                 </motion.div>
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
                     {pricing.map((price, index) => (
                         <motion.div
                             key={price.id}
                             initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: index * 2 }}
-                            className={cn("relative rounded-3xl bg-secondary/30 border-4 flex flex-col p-8 transition-all duration-300 shadow-lg hover:scale-105", price.isPopular ? "border-orange-200/80 shadow-2xl md:scale-105" : "")}
+                            className={cn("relative rounded-3xl bg-secondary/30 border-4 flex flex-col justify-between p-8 transition-all duration-300 shadow-lg hover:scale-105", price.isPopular ? "border-orange-200/80 shadow-2xl md:scale-105" : "")}
                         >
                             <div>
                                 {price.badge && (
@@ -123,7 +123,7 @@ const PricingPlans = () => {
                                         </div>
                                     </motion.div>
                                 )}
-                                <div className='mb-7'>
+                                <div className='mb-8'>
                                     <h2 className='text-base md:text-xl font-medium mb-2 font-jost'>{price.name}</h2>
                                     <p className='text-muted-foreground text-sm'>{price.description}</p>
                                 </div>
@@ -156,10 +156,11 @@ const PricingPlans = () => {
                                     </div>
                                 )}
                                 <div className='mb-8'>
-                                    <h1 className={cn("font-semibold mb-4")}>What's included</h1>
+                                    <h1 className={cn("font-semibold mb-4")}>What&aposs included</h1>
                                     <ul className='space-y-4'>
                                         {price.features.map((feature, featureIndex) => (
                                             <motion.li
+                                                key={featureIndex}
                                                 initial={{ opacity: 0, x: 20 }}
                                                 animate={{ opacity: 1, x: 0 }}
                                                 transition={{ duration: 0.4, delay: index * 2 + featureIndex * 1 }}
@@ -186,13 +187,11 @@ const PricingPlans = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className='mt-4'>
-                                <GradientButton
-                                    variant={price.isPopular ? "orange" : "white"}
-                                    text={price.buttonText}
-                                    className="w-full py-4 px-6 font-semibold transition-all duration-300"
-                                />
-                            </div>
+                            <GradientButton
+                                variant={price.isPopular ? "orange" : "white"}
+                                text={price.buttonText}
+                                className="w-full py-4 px-6 font-semibold transition-all duration-300"
+                            />
                         </motion.div>
                     ))}
 

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
 
 interface VideoTab {
     id: string,
@@ -16,7 +15,7 @@ interface VideoTab {
 const Features = () => {
     const [activeTab, setActiveTab] = useState<string>("dsa-basics");
     const [isVideModalOpen, setIsVideoModalOpen] = useState(false);
-
+    if(!isVideModalOpen) return null;
 
     const videosTab: VideoTab[] = [
         {

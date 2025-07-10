@@ -8,18 +8,13 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogTrigger,
 } from "@/components/ui/dialog"
 import {
     Card,
-    CardAction,
     CardContent,
-    CardDescription,
     CardFooter,
-    CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { title } from 'process'
 import { IconChevronRight, IconPlus } from '@tabler/icons-react';
 import { AnimatePresence, motion } from "framer-motion"
 
