@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react'
 
 interface VideoTab {
@@ -15,7 +16,7 @@ interface VideoTab {
 const Features = () => {
     const [activeTab, setActiveTab] = useState<string>("dsa-basics");
     const [isVideModalOpen, setIsVideoModalOpen] = useState(false);
-    if(!isVideModalOpen) return null;
+    const [modalVideo, setModalVideo] = useState<VideoTab | null>(null);
 
     const videosTab: VideoTab[] = [
         {
@@ -68,6 +69,7 @@ const Features = () => {
         setActiveTab(tab.id);
 
         if (window.innerWidth < 768) {
+            setModalVideo(tab);
             setIsVideoModalOpen(true);
         }
     }
@@ -156,6 +158,55 @@ const Features = () => {
                         </div>
                     </div>
                 </div>
+                <AnimatePresence>
+                    {isVideModalOpen && modalVideo && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className='fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4'
+                            onClick={() => setIsVideoModalOpen(false)}
+                        >
+                            <motion.div
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.8, opacity: 0 }}
+                                className="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+
+                                <video
+                                    src={modalVideo.videoUrl}
+                                    title={modalVideo.title}
+                                    className='w-full h-full'
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                />
+                                <button
+                                    className='absolute top-2 right-4 text-white bg-black/50 w-10 h-10 rounded-full flex items-center justify-center transition-colors'
+                                    onClick={() => setIsVideoModalOpen(false)}
+                                >
+                                    <svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M6 18L18 6M6 6l12 12"
+                                        />
+                                    </svg>
+
+                                </button>
+                            </motion.div>
+
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     )
