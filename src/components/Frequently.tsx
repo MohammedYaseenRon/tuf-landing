@@ -311,7 +311,7 @@ const Frequently = () => {
                         className='lg:col-span-4 hidden lg:block'
                     >
                         <div className='rounded-2xl p-4 border'>
-                            {faqCategory.map((cat, index) => (
+                            {faqCategory.map((cat) => (
                                 <button
                                     key={cat.id}
                                     onClick={() => {
@@ -351,7 +351,7 @@ const Frequently = () => {
                     <div className='lg:hidden'>
                         <div className='overflow-x-auto scrollbar-hide'>
                             <div className='flex items-center gap-2'>
-                                {faqCategory.map((cat, index) => (
+                                {faqCategory.map((cat) => (
                                     <button
                                         key={cat.id}
                                         onClick={() => {

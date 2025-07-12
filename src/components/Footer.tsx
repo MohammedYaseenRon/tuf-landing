@@ -152,7 +152,7 @@ const Footer = () => {
                                 href="#"
                                 className="block transition-colors hover:text-primary"
                             >
-                                Striver's CP Sheet
+                                Striver&aposs CP Sheet
                             </a>
                         </nav>
                     </div>
@@ -163,12 +163,12 @@ const Footer = () => {
                                 href="#"
                                 className="block transition-colors hover:text-primary"
                             >
-                                Striver's SDE Sheet
+                                Striver&aposs SDE Sheet
                             </a><a
                                 href="#"
                                 className="block transition-colors hover:text-primary"
                             >
-                                Striver's A2Z DSA Playlist
+                                Striver&aposs A2Z DSA Playlist
                             </a><a
                                 href="#"
                                 className="block transition-colors hover:text-primary"
@@ -178,7 +178,7 @@ const Footer = () => {
                                 href="#"
                                 className="block transition-colors hover:text-primary"
                             >
-                                Striver's CP Sheet
+                                Striver&aposs CP Sheet
                             </a>
                         </nav>
                         <h3 className='text-orange-500 text-lg mb-4 font-semibold mt-4'>DSA Sheets</h3>
